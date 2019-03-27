@@ -3,18 +3,19 @@ const MongoStore = require('connect-mongo')(expressSession)
 const MongoClient = require('mongodb').MongoClient
 const fetch = require('node-fetch')
 const express = require('express')
+const config = require('@femto-apps/config')
 
 ;(async () => {
     const app = express()
     const port = 3002
 
-    const db = (await MongoClient.connect('mongodb://localhost:27017/', { useNewUrlParser: true })).db('custom_db')
+    const db = (await MongoClient.connect(config.get('mongo.uri'), { useNewUrlParser: true })).db(config.get('mongo.db'))
 
     app.set('view engine', 'pug')
 
     app.use(express.static('public'))
     app.use(expressSession({
-        secret: process.env.PG_SECRET || 'super_secret_123',
+        secret: config.get('session.secret'),
         resave: false,
         saveUninitialized: false,
         store: new MongoStore({ db }),
@@ -41,7 +42,7 @@ const express = require('express')
         const { token } = req.query
 
         console.log('verifying', token)
-        fetch(`http://localhost:3001/api/verify?token=${token}`)
+        fetch(`http://localhost:4500/?token=${token}`)
             .then(resp => resp.json())
             .then(resp => {
                 req.session.user = resp
