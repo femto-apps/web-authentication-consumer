@@ -24,6 +24,18 @@ const config = require('@femto-apps/config')
         }
     }))
     app.use((req, res, next) => {
+        if (req.session.token) {
+            fetch(`http://localhost:4500/?token=${req.session.token}`)
+                .then(resp => resp.json())
+                .then(resp => {
+                    req.session.user = resp
+                    next()
+                })
+        } else {
+            next()
+        }
+    })
+    app.use((req, res, next) => {
         req.user = req.session.user
         next()
     })
@@ -40,17 +52,12 @@ const config = require('@femto-apps/config')
     })
     app.get('/login_callback', (req, res) => {
         const { token } = req.query
-
-        console.log('verifying', token)
-        fetch(`http://localhost:4500/?token=${token}`)
-            .then(resp => resp.json())
-            .then(resp => {
-                req.session.user = resp
-                res.redirect('/')
-            })
+        req.session.token = token
+        res.redirect('/')
     })
     app.get('/logout', (req, res) => {
         req.session.user = undefined
+        req.session.token = undefined
         res.redirect('http://localhost:3001/logout')
     })
 
