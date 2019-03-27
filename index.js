@@ -19,6 +19,7 @@ const config = require('@femto-apps/config')
         resave: false,
         saveUninitialized: false,
         store: new MongoStore({ db }),
+        name: 'consumer',
         cookie: {
             maxAge: config.get('cookie.maxAge')
         }
