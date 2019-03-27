@@ -28,7 +28,7 @@ const config = require('@femto-apps/config')
     }))
     app.use((req, res, next) => {
         if (req.session.token) {
-            fetch(`http://localhost:4500/?token=${req.session.token}`)
+            fetch(`${config.get('token')}${req.session.token}`)
                 .then(resp => resp.json())
                 .then(resp => {
                     req.session.user = resp
@@ -50,7 +50,7 @@ const config = require('@femto-apps/config')
     })
     app.get('/login', (req, res) => {
         console.log('redirecting')
-        res.redirect('http://localhost:3001/api/auth?id=100&redirect=http://localhost:3002/login_callback')
+        res.redirect(config.get('provider.login'))
         console.log('redirected')
     })
     app.get('/login_callback', (req, res) => {
@@ -61,7 +61,7 @@ const config = require('@femto-apps/config')
     app.get('/logout', (req, res) => {
         req.session.user = undefined
         req.session.token = undefined
-        res.redirect('http://localhost:3001/logout')
+        res.redirect(config.get('provider.logout'))
     })
 
     app.listen(port, () => console.log(`Example app listening on port ${port}!`))

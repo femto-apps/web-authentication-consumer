@@ -11,4 +11,9 @@ module.exports = {
   session: {
     secret: 'adstfygjgnfAESRTDYFVB435ryuthf£$%RE;;:',
   },
+  provider: {
+    login: 'http://localhost:3001/api/auth?id=100&redirect=http://localhost:3002/login_callback', 
+    logout: 'http://localhost:3001/logout'
+  }, 
+  token: 'http://localhost:4500/?token='
 }
