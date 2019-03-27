@@ -6,6 +6,7 @@ module.exports = {
   },
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7 * 4, // 28 days
+    secret: 'xyfguhijklXYCUBJHKNL;ML567689$%^%*&(8'
   },
   session: {
     secret: 'adstfygjgnfAESRTDYFVB435ryuthf£$%RE;;:',
