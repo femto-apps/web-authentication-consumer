@@ -1,6 +1,7 @@
 const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')(expressSession)
 const MongoClient = require('mongodb').MongoClient
+const cookieParser = require('cookie-parser')
 const fetch = require('node-fetch')
 const express = require('express')
 const config = require('@femto-apps/config')
@@ -14,6 +15,7 @@ const config = require('@femto-apps/config')
     app.set('view engine', 'pug')
 
     app.use(express.static('public'))
+    app.use(cookieParser(config.get('cookie.secret'))
     app.use(expressSession({
         secret: config.get('session.secret'),
         resave: false,
