@@ -1,4 +1,8 @@
-div #[a(href='/login') login] #[a(href='/logout') logout]
+if user
+    div #[a(href=auth.getLogin(location.url)) login] 
+    div #[a(href=auth.getLogout(location.url)) logout]
+else
+    div #[a(href=auth.getLogin(location.url)) login] 
 
 if user
     p= JSON.stringify(user, null, 4)
