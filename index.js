@@ -28,7 +28,7 @@ const authenticationConsumer = require('../lib-authentication-consumer')
     }))
     app.use(authenticationConsumer({
         tokenService: { endpoint: 'http://localhost:4500' },
-        authenticationProvider: { endpoint: 'http://localhost:3001', consumerId: 100 },
+        authenticationProvider: { endpoint: 'http://localhost:3001', consumerId: "5c9e89bbfc9a32ff296c9a44" },
         authenticationConsumer: { endpoint: 'http://localhost:3002' }
     }))
 
@@ -40,5 +40,5 @@ const authenticationConsumer = require('../lib-authentication-consumer')
         res.render('home', { user: req.user } )
     })
 
-    app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+    app.listen(port, () => console.log(`Example app listening on port ${port}`))
 })()
