@@ -1,8 +1,13 @@
-if user
-    div #[a(href=auth.getLogin(location.url)) login] 
-    div #[a(href=auth.getLogout(location.url)) logout]
-else
-    div #[a(href=auth.getLogin(location.url)) login] 
+doctype html
+html
+    head
+        title Authorisation
+    body
+        if user
+            div #[a(href=auth.getLogin(location.url)) login] 
+            div #[a(href=auth.getLogout(location.url)) logout]
+        else
+            div #[a(href=auth.getLogin(location.url)) login] 
 
-if user
-    p= JSON.stringify(user, null, 4)
+        if user
+            p= JSON.stringify(user, null, 4)
