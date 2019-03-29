@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient
 const cookieParser = require('cookie-parser')
 const express = require('express')
 const config = require('@femto-apps/config')
-const authenticationConsumer = require('../lib-authentication-consumer')
+const authenticationConsumer = require('@femto-apps/authentication-consumer')
 
 ;(async () => {
     const app = express()
