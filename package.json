@@ -11,6 +11,7 @@
   "author": "[Popey456963, aappleton8]",
   "license": "MIT",
   "dependencies": {
+    "@femto-apps/authentication-consumer": "^1.0.0",
     "@femto-apps/config": "^1.0.0",
     "connect-mongo": "^2.0.3",
     "cookie-parser": "^1.4.4",
