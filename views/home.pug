@@ -1,8 +1,9 @@
 doctype html
 html
     head
-        title Authorisation
+        title Authorisation Consumer
     body
+        h1 Authentication Consumer 
         if user
             div #[a(href=auth.getLogin(location.url)) login] 
             div #[a(href=auth.getLogout(location.url)) logout]

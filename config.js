@@ -1,19 +1,20 @@
 module.exports = {
-  port: 3001,
+  port: 3002,
   mongo: {
     uri: 'mongodb://localhost:27017/',
-    db: 'authentication',
+    db: 'authenticationConsumer',
   },
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7 * 4, // 28 days
-    secret: 'xyfguhijklXYCUBJHKNL;ML567689$%^%*&(8'
+    secret: 'xyfguhijklXYCUBJHKNL;ML567689$%^%*&(8', 
+    name: 'consumer'
   },
   session: {
     secret: 'adstfygjgnfAESRTDYFVB435ryuthf£$%RE;;:',
   },
-  provider: {
-    login: 'http://localhost:3001/api/auth?id=100&redirect=http://localhost:3002/login_callback', 
-    logout: 'http://localhost:3001/logout'
-  }, 
-  token: 'http://localhost:4500/?token='
+  authenticationService: {
+    tokenService: { endpoint: 'http://localhost:4500' },
+    authenticationProvider: { endpoint: 'http://localhost:3001', consumerId: "ecb69978-7229-41c2-899c-b9dba79ca79f" },
+    authenticationConsumer: { endpoint: 'http://localhost:3002' }
+  }
 }
