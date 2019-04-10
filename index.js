@@ -31,14 +31,10 @@ const morgan = require('morgan')
   app.use(morgan('dev'))
 
   app.use(authenticationConsumer({
-    tokenService: { endpoint: config.get('authenticationService.tokenService.endpoint') },
-    authenticationProvider: { endpoint: config.get('authenticationService.authenticationProvider.endpoint'), consumerId: config.get('authenticationService.authenticationProvider.consumerId') },
-    authenticationConsumer: { endpoint: config.get('authenticationService.authenticationConsumer.endpoint') }
+    tokenService: { endpoint: config.get('tokenService.endpoint') },
+    authenticationProvider: { endpoint: config.get('authenticationProvider.endpoint'), consumerId: config.get('authenticationProvider.consumerId') },
+    authenticationConsumer: { endpoint: config.get('authenticationConsumer.endpoint') }
   }))
-
-  // tokenService: { endpoint },
-  // authenticationProvider: { endpoint, id, consumerId },
-  // authenticationConsumer: { endpoint }
 
   app.get('/', (req, res) => {
       res.render('home', { user: req.user } )

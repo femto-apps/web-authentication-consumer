@@ -12,9 +12,14 @@ module.exports = {
   session: {
     secret: 'adstfygjgnfAESRTDYFVB435ryuthf£$%RE;;:',
   },
-  authenticationService: {
-    tokenService: { endpoint: 'http://localhost:4500' },
-    authenticationProvider: { endpoint: 'http://localhost:3001', consumerId: "ecb69978-7229-41c2-899c-b9dba79ca79f" },
-    authenticationConsumer: { endpoint: 'http://localhost:3002' }
+  tokenService: {
+    endpoint: 'http://localhost:4500'
+  },
+  authenticationProvider: {
+    endpoint: 'http://localhost:3001',
+    consumerId: "6a6e8322-614c-44ae-97d6-335d789e558b"
+  },
+  authenticationConsumer: {
+    endpoint: 'http://localhost:3002'
   }
 }
