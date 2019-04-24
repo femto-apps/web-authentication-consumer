@@ -5,10 +5,13 @@ html
     body
         h1 Authentication Consumer 
         if user
+            div #[a(href=auth.getLogin(location.url)) Register] 
             div #[a(href=auth.getLogin(location.url)) login] 
             div #[a(href=auth.getLogout(location.url)) logout]
         else
             div #[a(href=auth.getLogin(location.url)) login] 
+            div #[a(href=auth.getLogin(location.url)) Register] 
+        div #[a(href=auth.getLogin(location.url) + "&multi=true") Multiple Login]
 
         if user
             p= JSON.stringify(user, null, 4)
