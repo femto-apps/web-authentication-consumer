@@ -41,10 +41,12 @@ const morgan = require('morgan')
   }))
 
   app.get('/', (req, res) => {
-      res.render('home', { user: req.user } )
+    console.log(req.user)
+    res.render('home', { user: req.user } )
   })
 
   app.get('/loggedin', (req, res) => {
+    console.log(req.user)
     res.render('loggedIn', { user: req.user })
   })
 
