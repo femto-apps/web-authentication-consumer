@@ -17,7 +17,7 @@ module.exports = {
   },
   authenticationProvider: {
     endpoint: 'http://localhost:3001',
-    consumerId: "ecb69978-7229-41c2-899c-b9dba79ca79f"
+    consumerId: "4f554bf1-0fda-4903-a894-9ed6f370d40c"
   },
   authenticationConsumer: {
     endpoint: 'http://localhost:3002'

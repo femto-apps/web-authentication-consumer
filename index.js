@@ -45,7 +45,7 @@ const morgan = require('morgan')
   })
 
   app.get('/loggedin', (req, res) => {
-    res.render('loggedIn', {user: req.user})
+    res.render('loggedIn', { user: req.user })
   })
 
   app.listen(port, () => console.log(`Example app listening on port ${port}`))
