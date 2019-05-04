@@ -6,21 +6,21 @@ module.exports = {
   },
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7 * 4, // 28 days
-    secret: 'xyfguhijklXYCUBJHKNL;ML567689$%^%*&(8', 
+    secret: 'CHANGE_ME', 
     name: 'consumer'
   },
   session: {
-    secret: 'adstfygjgnfAESRTDYFVB435ryuthf£$%RE;;:',
+    secret: 'CHANGE_ME',
   },
   tokenService: {
-    endpoint: 'http://localhost:4500'
+    endpoint: 'CHANGE_ME'
   },
   authenticationProvider: {
-    endpoint: 'http://localhost:3001',
-    consumerId: "ecb69978-7229-41c2-899c-b9dba79ca79f"
+    endpoint: 'CHANGE_ME',
+    consumerId: 'CHANGE_ME'
   },
   authenticationConsumer: {
-    endpoint: 'http://localhost:3002'
+    endpoint: 'CHANGE_ME'
   },
   /**
    * Allow the user to be redirected to a path other than domain:port

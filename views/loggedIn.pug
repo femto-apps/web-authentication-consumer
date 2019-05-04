@@ -6,6 +6,7 @@ html
         h1 Authentication Consumer Just Logged In
         if user
             div #[a(href=auth.getLogin(location.url)) login] 
+            div #[a(href=auth.getLogin(location.url)) login 2] 
             div #[a(href=auth.getLogout(location.url)) logout]
         else
             div #[a(href=auth.getLogin(location.url)) login] 
